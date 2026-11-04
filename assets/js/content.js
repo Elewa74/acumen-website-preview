@@ -218,3 +218,4 @@ Object.assign(T.ar,{navL:'الرئيسية',navM:'القائمة',brand:'أكي�
 Object.assign(T.fr,{navL:'Principal',navM:'Menu',brand:'Acumen',dErr:'Saisissez une adresse e-mail professionnelle valide, par exemple nom@entreprise.com.'});
 Object.assign(T.tr,{navL:'Ana menü',navM:'Menü',brand:'Acumen',dErr:'Geçerli bir iş e-postası girin, örneğin ad@sirket.com.'});
 Object.assign(T.ur,{navL:'مرکزی',navM:'مینو',brand:'ایکیومن',dErr:'درست دفتری ای میل درج کریں، مثلاً name@company.com۔'});
+const COVA={print:'print',online:'online',wire:'online',tv:'tv',yt:'youtube',pod:'youtube',social:'social',archive:'archive'};
