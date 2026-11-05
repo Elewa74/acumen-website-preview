@@ -985,7 +985,7 @@ html.dr-open{overflow:hidden}
 @media (max-width:980px){.flow{grid-template-columns:repeat(2,minmax(0,1fr))}}
 .fstep{overflow-wrap:anywhere;hyphens:auto}.tc b{overflow-wrap:anywhere}
 .rc-photo figcaption{font-size:12px}.rc-photo img{height:auto}
-@media (pointer:coarse){.more,.ft6 a{min-height:44px;display:inline-flex;align-items:center}.fb a{display:inline-block;padding:12px 4px}.dlang .lopt{min-height:44px}}
+@media (pointer:coarse){.more{min-height:44px;display:inline-flex;align-items:center}.ft6 [id^=f] a{display:block;min-height:44px;padding-block:12px;box-sizing:border-box}.fb a{display:inline-block;padding:12px 4px}.dlang .lopt{min-height:44px}}
 @media (min-width:981px) and (max-height:820px){
  .hero{min-height:100vh;min-height:100svh;max-height:100svh}
  .hero h1{font-size:clamp(40px,7.2vh,64px)}
@@ -1236,3 +1236,22 @@ html.dr-open{overflow:hidden}
 .aboutp{text-align:center}
 @media (max-width:560px){.vtl::before{inset-inline-start:66px}.vtl li{grid-template-columns:66px 1fr;gap:20px}.vtl li::before{inset-inline-start:60px}}
 .vtl .y{text-align:left;padding:12px 18px 0 0}:root[dir="rtl"] .vtl .y{text-align:right;padding:12px 0 0 18px}
+
+/* ===== Final QA fixes (v27) ===== */
+body:not(.ready) footer{visibility:hidden}
+main{min-height:100vh}
+.phero{background:linear-gradient(135deg,#0A3A57 0%,#00699B 60%,#0074AD 100%)}
+.plead,.crumbs,.crumbs a,.phero .kick{color:#fff}.plead{opacity:.95}
+.phero :focus-visible,.pcta :focus-visible{outline-color:#fff!important}
+@media (prefers-reduced-motion:reduce){.lmask{overflow:hidden!important}}
+.req-note{margin:0;font-size:13px;color:var(--grey-2)}
+
+/* ===== Final responsive fixes (v27) ===== */
+body:not(.ready) main{visibility:hidden}
+@media (max-width:400px){.hero .ctas{flex-wrap:wrap}.hero .ctas .btn{flex:1 1 100%;white-space:normal}}
+@media (max-width:480px){:root:is([lang="fr"],[lang="tr"]) .hero .ctas{flex-wrap:wrap}:root:is([lang="fr"],[lang="tr"]) .hero .ctas .btn{flex:1 1 100%;white-space:normal}}
+@media (max-width:820px){.ft6 .about img{display:block;margin-inline:auto}.cform>h2{text-align:center}}
+:root[lang="ur"] .fstep h3{margin-top:14px}
+.cform .cons input{min-height:0;height:20px;width:20px;padding:0}
+@media (pointer:coarse){.crumbs a{padding-block:10px;display:inline-block}.pill span{min-height:44px}address a{display:inline-block;padding-block:12px}.lpause{min-height:44px}}
+.vtl{max-width:760px;margin-inline:auto}.affil{text-align:center}

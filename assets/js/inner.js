@@ -19,15 +19,15 @@ const R={
 coverage(P){const mi={print:'print',online:'online',tv:'tv',social:'social',yt:'yt',archive:'archive'};
  return `<section class="sec"><div class="wrap rv">${ttl(P.tableH)}
   <div class="ptable-w" role="region" aria-label="${esc(P.tableH)}" tabindex="0"><table class="ptable"><thead><tr>${P.cols.map(c=>`<th scope="col">${esc(c)}</th>`).join('')}</tr></thead>
-  <tbody>${P.rows.map(r=>`<tr>${r.map((c,i)=>i?`<td data-l="${esc(P.cols[i])}">${c?`<bdi>${esc(c)}</bdi>`:'<span aria-hidden="true">—</span>'}</td>`:`<th scope="row">${esc(c)}</th>`).join('')}</tr>`).join('')}</tbody></table></div></div></section>
+  <tbody>${P.rows.map(r=>`<tr>${r.map((c,i)=>i?`<td data-l="${esc(P.cols[i])}">${c?esc(c):'<span aria-hidden="true">—</span>'}</td>`:`<th scope="row">${esc(c)}</th>`).join('')}</tr>`).join('')}</tbody></table></div></div></section>
  <section class="sec soft"><div class="wrap">${ttl(P.mediaH)}<div class="mdet">${P.media.map(m=>`<article class="mcd rv" id="${m.id}"><div class="mcd-h">${MI[mi[m.icon]]||''}<span class="tag">${esc(m.name)}</span></div><h3>${esc(m.h)}</h3><p class="lead2">${esc(m.lead)}</p><ul class="figs">${m.figs.map(f=>`<li>${esc(f)}</li>`).join('')}</ul><p>${esc(m.body)}</p></article>`).join('')}</div>
   <p class="callout rv">${esc(P.callout)}</p></div></section>${cta(P.ctaH,P.ctaB)}`},
 solutions(P){const C=PG[lang].common;
  const needs=P.needs.map((n,i)=>`<article class="ncd" id="need-${i+1}"><span class="tag">${esc(n.name)}</span><h3>${esc(n.h)}</h3><p>${esc(n.lead)}</p><h4>${esc(C.helps)}</h4><ul class="chk">${n.helps.map(x=>`<li>${CHK}<span>${esc(x)}</span></li>`).join('')}</ul><div class="proof">${n.proof.map(x=>`<span>${esc(x)}</span>`).join('')}</div></article>`).join('');
  const segs=P.segs.map(g=>`<article class="sgd" id="${g.key}">${SVG(TI[g.key])}<div><span class="tag">${esc(g.name)}</span><h3>${esc(g.h)}</h3><p>${esc(g.lead)}</p><h4>${esc(C.provide)}</h4><ul class="chk">${g.items.map(x=>`<li>${CHK}<span>${esc(x)}</span></li>`).join('')}</ul>${btn(g.cta,L('contact/'),'btn-o')}</div></article>`).join('');
  return `<section class="sec"><div class="wrap"><div class="stabs" role="tablist" aria-label="${esc(P.h1)}"><button role="tab" id="st1" aria-controls="sp1" aria-selected="true" type="button">${esc(P.tabNeed)}</button><button role="tab" id="st2" aria-controls="sp2" aria-selected="false" tabindex="-1" type="button">${esc(P.tabSeg)}</button></div>
-  <div class="spanel" id="sp1" role="tabpanel" aria-labelledby="st1"><h2 class="sr">${esc(P.tabNeed)}</h2><div class="ngrid">${needs}</div></div>
-  <div class="spanel" id="sp2" role="tabpanel" aria-labelledby="st2" hidden><h2 class="sr">${esc(P.tabSeg)}</h2><div class="sgrid">${segs}</div></div></div></section>${cta(P.ctaH,P.ctaB)}`},
+  <div class="spanel" id="sp1" role="tabpanel" aria-labelledby="st1" tabindex="0"><h2 class="sr">${esc(P.tabNeed)}</h2><div class="ngrid">${needs}</div></div>
+  <div class="spanel" id="sp2" role="tabpanel" aria-labelledby="st2" tabindex="0" hidden><h2 class="sr">${esc(P.tabSeg)}</h2><div class="sgrid">${segs}</div></div></div></section>${cta(P.ctaH,P.ctaB)}`},
 about(P){const A=ARC[lang];
  return `<section class="sec"><div class="wrap">${ttl(P.storyH)}<ol class="vtl rv">${A.map(([y,t,f,fl])=>`<li><span class="y num">${esc(y)}</span><div><b>${esc(t)}</b>${f?`<span class="f"><bdi>${esc(f)}</bdi>${fl?' '+esc(fl):''}</span>`:''}</div></li>`).join('')}</ol><p class="affil rv">${esc(P.affil)}</p></div></section>
  <section class="sec soft" id="how"><div class="wrap">${ttl(P.howH,P.howS)}<ol class="steps6 rv">${P.steps.map((s,i)=>`<li><span class="n num">0${i+1}</span><b>${esc(s)}</b></li>`).join('')}</ol></div></section>
@@ -35,16 +35,16 @@ about(P){const A=ARC[lang];
   <div class="pstats rv">${P.stats.map(([n,l])=>`<div><b class="num"><bdi>${esc(n)}</bdi></b><span>${esc(l)}</span></div>`).join('')}</div></div></section>
  <section class="sec" style="padding-top:0"><div class="wrap aboutp"><h2 class="ph2">${esc(P.partnersH)}</h2><div class="plogos"><img loading="lazy" src="../assets/img/partner-media-pan-arab-1.png" alt="Media Pan Arab"><img loading="lazy" src="../assets/img/partner-almotahida-1.png" alt="Almotahida"></div></div></section>${cta(P.ctaH,P.ctaB)}`},
 contact(P){const f=P.f,LG=LANGS.map(([c,n])=>`<option value="${c}"${c===lang?' selected':''}>${n}</option>`).join('');
- const fld=(id,lab,type,req,extra)=>`<label class="fld"><span>${esc(lab)}${req?' <i aria-hidden="true">*</i>':''}</span><input id="${id}" name="${id}" type="${type}"${req?' required aria-required="true"':''}${extra||''}></label>`;
+ const fld=(id,lab,type,req,extra)=>`<label class="fld"><span>${esc(lab)}${req?' <i aria-hidden="true">*</i>':''}</span><input id="${id}" name="${id}" type="${type}"${req?' required aria-required="true" aria-describedby="cErr"':''}${extra||''}></label>`;
  return `<section class="sec"><div class="wrap cgrid">
-  <form class="cform rv" id="cform" novalidate aria-labelledby="cfH"><h2 id="cfH">${esc(P.formH)}</h2>
+  <form class="cform rv" id="cform" novalidate aria-labelledby="cfH"><h2 id="cfH">${esc(P.formH)}</h2><p class="req-note"><span aria-hidden="true">*</span> ${esc(f.req)}</p>
    <div class="frow2">${fld('name',f.name,'text',1,' autocomplete="name"')}${fld('email',f.email,'email',1,' autocomplete="email" dir="ltr"')}</div>
    <div class="frow2">${fld('org',f.org,'text',1,' autocomplete="organization"')}${fld('title',f.title,'text',0,' autocomplete="organization-title"')}</div>
-   <div class="frow2"><label class="fld"><span>${esc(f.country)} <i aria-hidden="true">*</i></span><select id="country" name="country" required aria-required="true"><option value="">${esc(f.choose)}</option>${P.countries.map(c=>`<option>${esc(c)}</option>`).join('')}</select></label>${fld('phone',f.phone,'tel',0,' autocomplete="tel" dir="ltr"')}</div>
+   <div class="frow2"><label class="fld"><span>${esc(f.country)} <i aria-hidden="true">*</i></span><select id="country" name="country" required aria-required="true" aria-describedby="cErr"><option value="">${esc(f.choose)}</option>${P.countries.map(c=>`<option>${esc(c)}</option>`).join('')}</select></label>${fld('phone',f.phone,'tel',0,' autocomplete="tel" dir="ltr"')}</div>
    <fieldset class="fld ints"><legend>${esc(f.interest)}</legend>${P.interests.map((x,i)=>`<label class="pill"><input type="checkbox" name="interest" value="${i}"><span>${esc(x)}</span></label>`).join('')}</fieldset>
    <label class="fld"><span>${esc(f.message)}</span><textarea id="msg" name="message" rows="4"></textarea></label>
    <label class="fld"><span>${esc(f.plang)}</span><select name="plang">${LG}</select></label>
-   <label class="cons"><input type="checkbox" id="consent" required aria-required="true"><span>${esc(f.consent)} <i aria-hidden="true">*</i></span></label>
+   <label class="cons"><input type="checkbox" id="consent" required aria-required="true" aria-describedby="cErr"><span>${esc(f.consent)} <i aria-hidden="true">*</i></span></label>
    <p class="ferr" id="cErr" role="alert" hidden></p><button class="btn btn-a" type="submit">${esc(f.submit)}</button><p class="fok" id="cOk" role="status"></p></form>
   <div class="cside rv"><div class="cbox"><h2>${esc(P.expectH)}</h2><ul class="chk">${P.expect.map(x=>`<li>${CHK}<span>${esc(x)}</span></li>`).join('')}</ul></div>
    <div class="cbox office"><h2>${esc(P.officeH)}</h2><b>${esc(P.city)}</b><address>${esc(P.addr)}<br><span>${esc(P.phoneL)}:</span> <a href="tel:+97145136836"><bdi>+971 4 513 6836</bdi></a></address></div></div></div></section>`},
@@ -77,25 +77,29 @@ function apply(){const r=document.documentElement;r.lang=lang;r.dir=RTL.includes
  $$('[data-nav]').forEach(a=>{const v=a.dataset.nav;a.setAttribute('href',v.startsWith('#')?H(v):L(v))});
  $('.logo').setAttribute('href',H());
  $$('[data-nav]').forEach(a=>{const cur=a.dataset.nav===(PAGE==='digest'?'insights/':PAGE+'/');a.toggleAttribute('aria-current',cur);if(cur)a.setAttribute('aria-current','page')});
- try{localStorage.setItem('acumen-evolve-lang',lang)}catch(e){}
+ try{localStorage.setItem('acumen-evolve-lang',lang)}catch(e){}document.body.classList.add('ready');
  wire();reveal();onScroll()}
 
 /* ---------- behaviours ---------- */
 let rvIO;function reveal(){const els=$$('.rv:not(.in)');if(RM||!('IntersectionObserver' in window)){els.forEach(e=>e.classList.add('in'));return}
  if(!rvIO)rvIO=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');rvIO.unobserve(e.target)}}),{rootMargin:'0px 0px -6% 0px'});els.forEach(e=>rvIO.observe(e))}
+/* Set FORM_ENDPOINT to the CRM / mail endpoint (accepts JSON POST). Empty = preview mode (no data is sent). */
+const FORM_ENDPOINT='';
+const send=(kind,data)=>FORM_ENDPOINT?fetch(FORM_ENDPOINT,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({form:kind,lang,page:location.pathname,...data})}).then(r=>{if(!r.ok)throw 0}):Promise.resolve();
 const mail=v=>/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v);
 function wire(){const P=PG[lang][PAGE];
  /* solutions tabs (arrow keys mirrored in RTL); a #segment hash opens the segment tab */
  const tabs=$$('.stabs [role=tab]');if(tabs.length){const sel=i=>{tabs.forEach((t,j)=>{t.setAttribute('aria-selected',j===i);t.tabIndex=j===i?0:-1;$('#'+t.getAttribute('aria-controls')).hidden=j!==i})};
   tabs.forEach((t,i)=>{t.onclick=()=>sel(i);t.onkeydown=e=>{const rtl=RTL.includes(lang);let d=0;if(e.key===(rtl?'ArrowLeft':'ArrowRight'))d=1;if(e.key===(rtl?'ArrowRight':'ArrowLeft'))d=-1;if(e.key==='Home'){e.preventDefault();sel(0);tabs[0].focus()}if(e.key==='End'){e.preventDefault();sel(tabs.length-1);tabs[tabs.length-1].focus()}if(d){e.preventDefault();const n=(i+d+tabs.length)%tabs.length;sel(n);tabs[n].focus()}}});
-  const h=location.hash.slice(1);if(['gov','corp','pr','intl'].includes(h)){sel(1);setTimeout(()=>{const el=document.getElementById(h);el&&el.scrollIntoView({block:'start'})},60)}}
+  const go=()=>{const h=location.hash.slice(1);if(['gov','corp','pr','intl'].includes(h)){sel(1);settle(h)}};go();if(!wire.hc){wire.hc=1;addEventListener('hashchange',go)}}
  const cf=$('#cform');if(cf)cf.onsubmit=e=>{e.preventDefault();const err=$('#cErr');let bad=null;
   cf.querySelectorAll('[required]').forEach(x=>{const ok=x.type==='checkbox'?x.checked:x.type==='email'?mail(x.value.trim()):x.value.trim()!=='';x.toggleAttribute('aria-invalid',!ok);if(!ok)x.setAttribute('aria-invalid','true');if(!ok&&!bad)bad=x});
   if(bad){err.textContent=bad.type==='email'&&bad.value?P.errEmail:P.errReq;err.hidden=false;bad.focus();$('#cOk').textContent='';return}
-  err.hidden=true;$('#cOk').textContent=P.ok;cf.reset()};
+  err.hidden=true;const fd=Object.fromEntries(new FormData(cf));fd.interest=[...cf.querySelectorAll('[name=interest]:checked')].map(x=>P.interests[x.value]);send('contact',fd).then(()=>{$('#cOk').textContent=P.ok;cf.reset()}).catch(()=>{err.textContent=PG[lang].common.sendErr;err.hidden=false})};
  const sf=$('#sform');if(sf)sf.onsubmit=e=>{e.preventDefault();const i=$('#semail'),err=$('#sErr');if(!mail(i.value.trim())){i.setAttribute('aria-invalid','true');err.textContent=T[lang].dErr;err.hidden=false;i.focus();$('#sOk').textContent='';return}
-  i.removeAttribute('aria-invalid');err.hidden=true;$('#sOk').textContent=P.ok;sf.reset()};
- if(location.hash&&!['#gov','#corp','#pr','#intl'].includes(location.hash)){const el=document.getElementById(location.hash.slice(1));if(el)setTimeout(()=>el.scrollIntoView({block:'start'}),60)}}
+  i.removeAttribute('aria-invalid');err.hidden=true;send('digest',{email:i.value.trim(),lang:sf.querySelector('select').value}).then(()=>{$('#sOk').textContent=P.ok;sf.reset()}).catch(()=>{err.textContent=PG[lang].common.sendErr;err.hidden=false})};
+ if(location.hash&&!['#gov','#corp','#pr','#intl'].includes(location.hash))settle(location.hash.slice(1))}
+function settle(id){const s=()=>{const el=document.getElementById(id);el&&el.scrollIntoView({block:'start'})};requestAnimationFrame(s);(document.fonts&&document.fonts.ready||Promise.resolve()).then(()=>requestAnimationFrame(s));addEventListener('load',()=>setTimeout(s,50),{once:true})}
 
 const hdr=$('#hdr');const prog=$('#prog');const onScroll=()=>{hdr.classList.toggle('solid',scrollY>40||$('#drawer').classList.contains('open'));const m=document.documentElement.scrollHeight-innerHeight;prog.style.transform='scaleX('+(m>0?scrollY/m:0)+')'};addEventListener('scroll',onScroll,{passive:true});
 const lm=$('#lmenu'),lb=$('#lang');const closeL=()=>{lm.classList.remove('open');lb.setAttribute('aria-expanded','false')};
@@ -105,7 +109,7 @@ document.addEventListener('keydown',e=>{if(e.key==='Escape'&&lm.classList.contai
 lm.addEventListener('keydown',e=>{if(e.key!=='ArrowDown'&&e.key!=='ArrowUp')return;e.preventDefault();const b=[...lm.querySelectorAll('.lopt')],i=b.indexOf(document.activeElement);b[(i+(e.key==='ArrowDown'?1:-1)+b.length)%b.length].focus()});
 const pickL=e=>{const b=e.target.closest('.lopt');if(!b)return;lang=b.dataset.l;closeL();apply();try{const u=new URL(location.href);u.searchParams.set('lang',lang);history.replaceState(null,'',u)}catch(_){}if(e.currentTarget===lm)lb.focus()};
 const closeD=()=>{$('#drawer').classList.remove('open');$('#menu').setAttribute('aria-expanded',false);onScroll()};
-lm.addEventListener('click',pickL);$('#dlang').addEventListener('click',e=>{pickL(e);closeD()});
+lm.addEventListener('click',pickL);$('.lsw').addEventListener('focusout',e=>{if(lm.classList.contains('open')&&e.relatedTarget&&!e.currentTarget.contains(e.relatedTarget))closeL()});$('#dlang').addEventListener('click',e=>{pickL(e);closeD()});
 $('#menu').addEventListener('click',()=>{const d=$('#drawer');{const hh=Math.ceil(hdr.getBoundingClientRect().bottom);d.style.top=hh+'px';d.style.maxHeight=(innerHeight-hh)+'px'}const o=d.classList.toggle('open');$('#menu').setAttribute('aria-expanded',o);onScroll();if(o){const f=d.querySelector('a');f&&f.focus()}});
 new MutationObserver(()=>document.documentElement.classList.toggle('dr-open',$('#drawer').classList.contains('open'))).observe($('#drawer'),{attributes:true,attributeFilter:['class']});
 $('#drawer').addEventListener('focusout',e=>{const d=$('#drawer');if(d.classList.contains('open')&&e.relatedTarget&&!d.contains(e.relatedTarget)&&e.relatedTarget!==$('#menu'))closeD()});
