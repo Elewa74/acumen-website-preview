@@ -33,7 +33,7 @@ about(P){const A=ARC[lang];
  <section class="sec soft" id="how"><div class="wrap">${ttl(P.howH,P.howS)}<ol class="steps6 rv">${P.steps.map((s,i)=>`<li><span class="n num">0${i+1}</span><b>${esc(s)}</b></li>`).join('')}</ol></div></section>
  <section class="sec" id="team"><div class="wrap">${ttl(P.centersH)}<div class="centers rv">${P.centers.map(c=>`<div class="ctr"><h3>${esc(c.h)}</h3>${c.p?`<p>${esc(c.p)}</p>`:''}</div>`).join('')}</div>
   <div class="pstats rv">${P.stats.map(([n,l])=>`<div><b class="num"><bdi>${esc(n)}</bdi></b><span>${esc(l)}</span></div>`).join('')}</div></div></section>
- <section class="sec" style="padding-top:0"><div class="wrap aboutp"><h2 class="ph2">${esc(P.partnersH)}</h2><div class="plogos"><img loading="lazy" src="../assets/img/partner-media-pan-arab-1.png" alt="Media Pan Arab"><img loading="lazy" src="../assets/img/partner-almotahida-1.png" alt="Almotahida"></div></div></section>${cta(P.ctaH,P.ctaB)}`},
+ ${cta(P.ctaH,P.ctaB)}`},
 contact(P){const f=P.f,LG=LANGS.map(([c,n])=>`<option value="${c}"${c===lang?' selected':''}>${n}</option>`).join('');
  const fld=(id,lab,type,req,extra)=>`<label class="fld"><span>${esc(lab)}${req?' <i aria-hidden="true">*</i>':''}</span><input id="${id}" name="${id}" type="${type}"${req?' required aria-required="true" aria-describedby="cErr"':''}${extra||''}></label>`;
  return `<section class="sec"><div class="wrap cgrid">
@@ -71,12 +71,12 @@ function apply(){const r=document.documentElement;r.lang=lang;r.dir=RTL.includes
  $('#pcta').innerHTML=PAGE==='contact'?'':PAGE==='digest'?btn(P.submit,'#sform','btn-w'):btn(C.demoCta,L('contact/'),'btn-w');
  $('#pg').innerHTML=R[PAGE](P);
  /* footer */
- const F=FOOT[lang];const FL={f1:[H('#platform'),H('#platform'),H('#platform'),H('#platform'),H('#ai')],f2:[L('coverage/')+'#print',L('coverage/')+'#online',L('coverage/')+'#tv',L('coverage/')+'#social',L('coverage/')+'#archive'],f3:[L('solutions/')+'#gov',L('solutions/')+'#corp',L('solutions/')+'#pr',L('solutions/')+'#intl'],f4:[L('about/'),L('about/')+'#how',L('about/'),L('contact/')],f5:[L('media-digest/'),L('insights/'),L('insights/'),L('insights/')]};
+ const F=FOOT[lang];const FL={f1:[H('#platform'),H('#platform'),H('#platform'),H('#platform'),H('#ai')],f2:[L('coverage/')+'#print',L('coverage/')+'#online',L('coverage/')+'#tv',L('coverage/')+'#social',L('coverage/')+'#archive'],f3:[L('solutions/')+'#gov',L('solutions/')+'#corp',L('solutions/')+'#pr',L('solutions/')+'#intl'],f4:[L('about/'),L('about/')+'#how',L('about/'),L('contact/')],f5:[L('media-digest/')]};
  ['f1','f2','f3','f4','f5'].forEach(k=>$('#'+k).innerHTML=F[k].map((x,i)=>`<a href="${FL[k][i]||FL[k][0]}">${esc(x)}</a>`).join(''));
  /* header + drawer links */
  $$('[data-nav]').forEach(a=>{const v=a.dataset.nav;a.setAttribute('href',v.startsWith('#')?H(v):L(v))});
  $('.logo').setAttribute('href',H());
- $$('[data-nav]').forEach(a=>{const cur=a.dataset.nav===(PAGE==='digest'?'insights/':PAGE+'/');a.toggleAttribute('aria-current',cur);if(cur)a.setAttribute('aria-current','page')});
+ $$('[data-nav]').forEach(a=>{const cur=a.dataset.nav===(PAGE==='digest'?'media-digest/':PAGE+'/');a.toggleAttribute('aria-current',cur);if(cur)a.setAttribute('aria-current','page')});
  try{localStorage.setItem('acumen-evolve-lang',lang)}catch(e){}document.body.classList.add('ready');
  wire();reveal();onScroll()}
 

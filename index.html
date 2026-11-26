@@ -16,7 +16,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@300;400;600;700&family=Roboto:wght@400;500;700&family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&family=Noto+Nastaliq+Urdu:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500&display=swap">
-<link rel="stylesheet" href="assets/css/style.css?v=202611051326">
+<link rel="stylesheet" href="assets/css/style.css?v=202611261156">
 <script>try{var q=(new URLSearchParams(location.search).get('lang')||localStorage.getItem('acumen-evolve-lang')||'').toLowerCase();if(/^(en|ar|fr|tr|ur)$/.test(q)){document.documentElement.lang=q;document.documentElement.dir=/^(ar|ur)$/.test(q)?'rtl':'ltr'}}catch(e){}</script>
 <noscript><style>main,footer{visibility:visible!important}</style></noscript>
 </head>
@@ -26,7 +26,7 @@
 <header class="hdr" id="hdr">
  <div class="wrap">
   <a class="logo" href="./" aria-label="Acumen"><img class="w" src="assets/img/acumen_logo_white.png" alt=""><img class="c" src="assets/img/acumen_logo_color.png" alt=""></a>
-  <nav class="nav" aria-label="Main" data-al="navL"><a href="#platform" data-i="n1">Platform</a><a href="#coverage" data-i="n2">Coverage</a><a href="#solutions" data-i="n3">Solutions</a><a href="#research" data-i="n4">Services</a><a href="#why" data-i="n5">Why Acumen</a><a href="#insights" data-i="n6">Insights</a><a href="about/index.html" data-i="n7">About</a></nav>
+  <nav class="nav" aria-label="Main" data-al="navL"><a href="#platform" data-i="n1">Platform</a><a href="#coverage" data-i="n2">Coverage</a><a href="#solutions" data-i="n3">Solutions</a><a href="#research" data-i="n4">Services</a><a href="#why" data-i="n5">Why Acumen</a><a href="media-digest/index.html" data-i="n6">Media Digest</a><a href="about/index.html" data-i="n7">About</a></nav>
   <div class="acts">
    <div class="lsw"><button class="lang" id="lang" type="button" aria-expanded="false" aria-controls="lmenu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3.5 3 14.5 0 18M12 3c-3 3.5-3 14.5 0 18"/></svg><span id="langCur"></span></button><ul class="lmenu" id="lmenu"></ul></div>
    <a class="btn btn-w hlogin" href="https://app.acumen.me" target="_blank" rel="noopener" data-i="login">Log in</a>
@@ -34,7 +34,7 @@
   </div>
  </div>
 </header>
-<nav class="drawer" id="drawer" aria-label="Mobile" data-al="navM"><a href="#platform" data-i="n1">Platform</a><a href="#coverage" data-i="n2">Coverage</a><a href="#solutions" data-i="n3">Solutions</a><a href="#research" data-i="n4">Services</a><a href="#why" data-i="n5">Why Acumen</a><a href="#insights" data-i="n6">Insights</a><a href="about/index.html" data-i="n7">About</a><a href="https://app.acumen.me" target="_blank" rel="noopener" data-i="login">Log in</a><div class="dlang" id="dlang" role="group"></div></nav>
+<nav class="drawer" id="drawer" aria-label="Mobile" data-al="navM"><a href="#platform" data-i="n1">Platform</a><a href="#coverage" data-i="n2">Coverage</a><a href="#solutions" data-i="n3">Solutions</a><a href="#research" data-i="n4">Services</a><a href="#why" data-i="n5">Why Acumen</a><a href="media-digest/index.html" data-i="n6">Media Digest</a><a href="about/index.html" data-i="n7">About</a><a href="https://app.acumen.me" target="_blank" rel="noopener" data-i="login">Log in</a><div class="dlang" id="dlang" role="group"></div></nav>
 
 <main id="main" tabindex="-1">
 <section class="hero" aria-labelledby="h1">
@@ -65,7 +65,7 @@
 <section class="sec tline" id="archive" aria-labelledby="arH">
  <div class="wrap">
   <div class="tl-head">
-   <div><h2 class="title" id="arH" data-i="arH">28 years of Arab media, layer on layer</h2><p class="title-sub" data-i="arS">Each medium joined the archive in the year shown and has been captured continuously since.</p></div>
+   <div><h2 class="title" id="arH" data-i="arH">28 years of Arab and global media, knowledge that builds up</h2><p class="title-sub" data-i="arS">Each medium joined the archive in the year shown and has been captured continuously since.</p></div>
    <div class="tl-span" aria-hidden="true"><b>1998</b><i></i><b>2026</b></div>
   </div>
   <ol class="tl" id="tl"></ol>
@@ -105,7 +105,7 @@
  <div class="wrap ai-in">
   <div class="ai-txt rv">
    <h2 class="title" id="aiH" data-i="aiH">AI that speaks the language of your media</h2>
-   <p class="lead" data-i="aiP">Ask Deep Research a question in plain language and get an answer, or a full report, in seconds.</p>
+   <p class="lead" data-i="aiP">Ask a question in plain language and get an answer, or a full report, in seconds.</p>
    <div class="chat" id="chat" aria-live="off">
     <div class="q"><span id="typed"></span><span class="car" aria-hidden="true"></span></div>
     <div class="a" id="ans"><span class="av" id="avIc"></span>
@@ -143,29 +143,24 @@
 
 <section class="sec rc" id="research">
  <div class="wrap rc-in rv">
-  <div><figure class="rc-photo" style="margin:0 0 22px"><img id="rcImg" alt="" data-alt="rAlt" loading="lazy" decoding="async" width="900" height="640"></figure><h2 data-i="rH">Acumen Research Center</h2><p data-i="rP">More than 100 analysts and researchers produce daily, weekly, monthly, and annual reports, crisis reports, and in-depth studies, in Arabic and English.</p><p class="q" data-i="rQ">Written by people, not generated automatically.</p><p style="margin-top:24px;display:flex;flex-wrap:wrap;gap:12px 24px;align-items:center"><a class="btn btn-g" href="contact/index.html" data-i="rBtn">Request a sample report</a><a class="more" href="solutions/index.html"><span data-i="rL">See report types</span><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></p></div>
+  <div><figure class="rc-photo" style="margin:0 0 22px"><img id="rcImg" alt="" data-alt="rAlt" loading="lazy" decoding="async" width="900" height="640"></figure><h2 data-i="rH">Acumen Research Center</h2><p data-i="rP">More than 100 analysts and researchers produce daily, weekly, monthly, and annual reports, crisis reports, and in-depth studies, in Arabic and English.</p><p class="q" data-i="rQ">Written by specialist analysts, not generated automatically.</p><p style="margin-top:24px;display:flex;flex-wrap:wrap;gap:12px 24px;align-items:center"><a class="btn btn-g" href="contact/index.html" data-i="rBtn">Request a sample report</a><a class="more" href="solutions/index.html"><span data-i="rL">See report types</span><svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></p></div>
   <div class="rtypes" id="rlist"></div>
  </div>
 </section>
 
-<section class="sec" id="insights">
+
+
+
+
+<section class="sec" id="insights" style="padding-top:0" aria-labelledby="dH">
  <div class="wrap">
-  <h2 class="title" data-i="iH">From our insights</h2>
-  <div class="ins rv" id="ins"></div>
-  <div class="dg-in" style="margin-top:56px;background:var(--tint);padding:clamp(24px,4vw,40px)" id="digest">
-   <div><h2 style="font-size:clamp(24px,2.4vw,30px);font-weight:400;color:var(--accent)" data-i="dH">Media Digest Subscription</h2><p style="margin-top:8px;color:var(--grey-2)" data-i="dP">Subscribe to receive a daily roundup of your industry news.</p></div>
+  <div class="dg-in rv" style="background:var(--tint);padding:clamp(24px,4vw,40px)" id="digest">
+   <div><h2 id="dH" style="font-size:clamp(24px,2.4vw,30px);font-weight:400;color:var(--accent)" data-i="dH">Media Digest Subscription</h2><p style="margin-top:8px;color:var(--grey-2)" data-i="dP">Subscribe to receive a daily roundup of your industry news.</p></div>
    <div><form class="dg-form" id="dform" novalidate style="margin-top:0"><label><span data-i="fMail">Work email</span><input name="email" type="email" autocomplete="email" required aria-describedby="dErr"></label><button class="btn btn-a" type="submit" data-i="dBtn">Subscribe</button></form><p id="dErr" class="ferr" role="alert" hidden data-i="dErr">Enter a valid work email, for example name@company.com.</p>
    <p class="form-ok" id="dok" role="status" data-i="dOk" style="margin-top:12px">Thank you for subscribing.</p></div>
   </div>
  </div>
 </section>
-
-<section class="sec" aria-labelledby="pH" style="padding-block:24px 72px">
- <div class="wrap"><h2 class="title" id="pH" data-i="pH">Our Partners</h2>
-  <div class="partners"><img loading="lazy" decoding="async" src="assets/img/partner-media-pan-arab-1.png" alt="Media Pan Arab"><img loading="lazy" decoding="async" src="assets/img/partner-almotahida-1.png" alt="Almotahida"></div>
- </div>
-</section>
-
 <section class="sec cta-band" id="demo" style="padding-block:clamp(72px,9vw,120px)">
  <canvas class="field" id="field2" aria-hidden="true"></canvas>
  <div class="wrap cta-c"><span class="cta-ov" data-i="demo">Book a demo</span><h2 data-i="ctaH">See what the media is saying about you today.</h2><p data-i="ctaP">Book a 30-minute demo on your actual coverage.</p><a class="btn cta-btn" href="contact/index.html"><span data-i="demo">Book a demo</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
@@ -186,7 +181,7 @@
  </div>
  <div class="fwm" aria-hidden="true" dir="ltr">acumen</div>
 </footer>
-<script src="assets/js/content.js?v=202611051326"></script>
-<script src="assets/js/main.js?v=202611051326"></script>
+<script src="assets/js/content.js?v=202611261156"></script>
+<script src="assets/js/main.js?v=202611261156"></script>
 </body>
 </html>
